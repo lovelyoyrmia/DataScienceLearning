@@ -34,19 +34,19 @@ print(dataBoston.describe())
 # print(sea.heatmap(dataBoston.corr(),annot=True))
 
 """Simple Linear Regression"""
-# print('-'*49);print('           Simple Linear Regression');print('-'*49)
-# x = dataBoston['RM'].values.reshape(-1,1)
-# # print(x)
-# y = dataBoston['MEDV'].values
+print('-'*49);print('           Simple Linear Regression');print('-'*49)
+x = dataBoston['RM'].values.reshape(-1,1)
+# print(x)
+y = dataBoston['MEDV'].values
 
-# from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import LinearRegression
 
-# model = LinearRegression()
-# model.fit(x,y)
-# print(model.coef_)
-# print(model.intercept_)
-# print('Prediction the price of houses that have 12 bedroom: '\
-#      f'{float(model.predict(np.array([[12]])))} $')
+model = LinearRegression()
+model.fit(x,y)
+print(model.coef_)
+print(model.intercept_)
+print('Prediction the price of houses that have 12 bedroom: '\
+     f'{float(model.predict(np.array([[12]])))} $')
 
 """DATA SPLITTING"""
 print("-" * 49)
@@ -81,8 +81,8 @@ print("-" * 49)
 print("               TEST DATA")
 print("-" * 49)
 testVal = model.predict(xTest)
-# print(testVal.shape)
-# error = []
-# for i,testVals in enumerate(testVal):
-#     error.append(yTest[i]-testVals)
-#     print(f'Actual Value: {yTest[i]}    Prediction Value: {int(testVals)}   Error: {int(error[i])}')
+print(testVal.shape)
+error = []
+for i,testVals in enumerate(testVal):
+    error.append(yTest[i]-testVals)
+    print(f'Actual Value: {yTest[i]}    Prediction Value: {int(testVals)}   Error: {int(error[i])}')
